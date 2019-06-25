@@ -66,7 +66,7 @@ namespace dat2csv
                         int answer = 6 - (((int)lines[i][j]) - 64);
                         if (answer > 5 || answer < 0)
                             answer = 0;
-                        course.answers[j-40].Add(answer);
+                        course.answers[j - 40].Add(answer);
                         course.answerdist[j - 40][answer]++;                      
                         outstr += answer + ";";
                     }
@@ -80,7 +80,7 @@ namespace dat2csv
                 }
                 courses.Add(course);
                 courseinfo(course, coursedat);
-            File.WriteAllText(coursedat + "_numeric_reverse.csv", outstr);
+            File.WriteAllText(coursedat + "_numeric.csv", outstr);
             }
         }
 
@@ -89,7 +89,7 @@ namespace dat2csv
             string outstr = "";
             outstr += "BBM" + course.name + "\n";
             outstr += "Student Count;" + course.count + "\n";
-            outstr += "question;0;1;2;3;4;5;avg;stdd\n";
+            outstr += "Question;0;1;2;3;4;5;Avg;Stdd\n";
             for (int i = 0; i < 39; i++)
             {
                 outstr += (i+1).ToString() + ";";
